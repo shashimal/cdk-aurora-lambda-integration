@@ -6,16 +6,14 @@ import {
     Instance,
     InstanceClass,
     InstanceSize,
-    InstanceType, ISecurityGroup, IVpc, NatProvider,
-    Peer,
+    InstanceType, ISecurityGroup, IVpc, Peer,
     Port,
     SecurityGroup,
     SubnetType,
     Vpc
 } from "aws-cdk-lib/aws-ec2";
 import {
-    AuroraMysqlEngineVersion, CfnDBCluster,
-    DatabaseCluster,
+    AuroraMysqlEngineVersion, DatabaseCluster,
     DatabaseClusterEngine, IParameterGroup,
     ParameterGroup
 } from "aws-cdk-lib/aws-rds";
@@ -52,9 +50,7 @@ export class CdkAuroraLambdaStack extends cdk.Stack {
         return new Vpc(this, 'VPC', {
             cidr: '10.0.0.0/16',
             maxAzs: 2,
-            natGatewayProvider: NatProvider.instance({
-                instanceType: new InstanceType('t2.micro'),
-            })
+            natGateways: 1
         });
     }
 
