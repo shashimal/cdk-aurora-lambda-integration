@@ -35,7 +35,7 @@ export class CdkAuroraLambdaStack extends cdk.Stack {
         const ec2Instance = this.createEC2Instance(vpc, ec2SecurityGroup, 'ec2-key');
 
         const snsTopic = this.createSnsTopic();
-        this.addEmailSubscription(snsTopic, "shashimald@gmail.com");
+        this.addEmailSubscription(snsTopic, "test@gmail.com");
 
         const auroraLambdaFunction = this.createLambdaFunction(snsTopic);
 
